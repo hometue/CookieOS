@@ -1,0 +1,289 @@
+Archive member included to satisfy reference by file (symbol)
+
+/media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+                              kernel/kernel.o (printf)
+/media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+                              kernel/kernel.o (putchar)
+/media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+                              kernel/kernel.o (puts)
+/media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+                              arch/i386/tty.o (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+terminal_color      0x1               arch/i386/tty.o
+IDT                 0x800             kernel/kernel.o
+terminal_column     0x4               arch/i386/tty.o
+terminal_buffer     0x4               arch/i386/tty.o
+terminal_row        0x4               arch/i386/tty.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD arch/i386/crti.o
+LOAD /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+LOAD arch/i386/boot.o
+LOAD arch/i386/tty.o
+LOAD kernel/kernel.o
+LOAD /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+LOAD arch/i386/crtn.o
+LOAD /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a
+LOAD /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/libgcc.a
+                0x0000000000100000                . = 0x100000
+
+.text           0x0000000000100000      0x7c2
+ *(.multiboot)
+ .multiboot     0x0000000000100000        0xc arch/i386/boot.o
+ *(.text)
+ .text          0x000000000010000c        0x0 arch/i386/crti.o
+ *fill*         0x000000000010000c        0x4 
+ .text          0x0000000000100010      0x145 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .text          0x0000000000100155       0x4a arch/i386/boot.o
+                0x0000000000100155                _start
+                0x0000000000100197                interuptHandler
+ *fill*         0x000000000010019f        0x1 
+ .text          0x00000000001001a0      0x1ac arch/i386/tty.o
+                0x00000000001001a0                terminal_initialize
+                0x0000000000100200                terminal_setcolor
+                0x0000000000100210                terminal_putentryat
+                0x0000000000100240                terminal_putchar
+                0x00000000001002e0                terminal_write
+                0x0000000000100310                terminal_writestring
+ *fill*         0x000000000010034c        0x4 
+ .text          0x0000000000100350      0x225 kernel/kernel.o
+                0x0000000000100350                itoa
+                0x0000000000100490                kernel_main
+                0x00000000001004b0                kernel_early
+                0x00000000001004d0                kernel_int
+                0x00000000001004f0                idt_setup
+ *fill*         0x0000000000100575        0xb 
+ .text          0x0000000000100580       0x42 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+ .text          0x00000000001005c2        0x0 arch/i386/crtn.o
+ *fill*         0x00000000001005c2        0xe 
+ .text          0x00000000001005d0      0x190 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+                0x00000000001005d0                printf
+ .text          0x0000000000100760       0x1f /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+                0x0000000000100760                putchar
+ *fill*         0x000000000010077f        0x1 
+ .text          0x0000000000100780       0x15 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+                0x0000000000100780                puts
+ *fill*         0x0000000000100795        0xb 
+ .text          0x00000000001007a0       0x22 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+                0x00000000001007a0                strlen
+
+.init           0x00000000001007c2        0xf
+ .init          0x00000000001007c2        0x3 arch/i386/crti.o
+                0x00000000001007c2                _init
+ .init          0x00000000001007c5        0x5 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .init          0x00000000001007ca        0x5 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+ .init          0x00000000001007cf        0x2 arch/i386/crtn.o
+
+.fini           0x00000000001007d1        0xa
+ .fini          0x00000000001007d1        0x3 arch/i386/crti.o
+                0x00000000001007d1                _fini
+ .fini          0x00000000001007d4        0x5 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .fini          0x00000000001007d9        0x2 arch/i386/crtn.o
+
+.iplt           0x00000000001007e0        0x0
+ .iplt          0x00000000001007e0        0x0 arch/i386/crti.o
+
+.rel.dyn        0x00000000001007dc        0x0
+ .rel.got       0x00000000001007dc        0x0 arch/i386/crti.o
+ .rel.iplt      0x00000000001007dc        0x0 arch/i386/crti.o
+ .rel.text      0x00000000001007dc        0x0 arch/i386/crti.o
+
+.rodata
+ *(.rodata)
+
+.eh_frame       0x00000000001007dc      0x294
+ .eh_frame      0x00000000001007dc        0x0 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .eh_frame      0x00000000001007dc       0xf4 arch/i386/tty.o
+ .eh_frame      0x00000000001008d0       0xd4 kernel/kernel.o
+                                         0xec (size before relaxing)
+ .eh_frame      0x00000000001009a4        0x0 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+                                          0x4 (size before relaxing)
+ .eh_frame      0x00000000001009a4       0x70 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+                                         0x88 (size before relaxing)
+ .eh_frame      0x0000000000100a14       0x28 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+                                         0x40 (size before relaxing)
+ .eh_frame      0x0000000000100a3c       0x20 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+                                         0x38 (size before relaxing)
+ .eh_frame      0x0000000000100a5c       0x14 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+                                         0x2c (size before relaxing)
+
+.rodata.str1.1  0x0000000000100a70       0x45
+ .rodata.str1.1
+                0x0000000000100a70       0x41 kernel/kernel.o
+ .rodata.str1.1
+                0x0000000000100ab1        0x4 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+
+.data           0x0000000000101000      0x810
+ *(.data)
+ .data          0x0000000000101000        0x0 arch/i386/crti.o
+ .data          0x0000000000101000        0x4 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+                0x0000000000101000                __dso_handle
+ .data          0x0000000000101004        0x0 arch/i386/boot.o
+ .data          0x0000000000101004        0x0 arch/i386/tty.o
+ .data          0x0000000000101004        0x0 kernel/kernel.o
+ .data          0x0000000000101004        0x0 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+ .data          0x0000000000101004        0x0 arch/i386/crtn.o
+ .data          0x0000000000101004        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .data          0x0000000000101004        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .data          0x0000000000101004        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .data          0x0000000000101004        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+ *(.gdt)
+ .gdt           0x0000000000101004      0x806 arch/i386/boot.o
+ *(.idt)
+ .idt           0x000000000010180a        0x6 arch/i386/boot.o
+
+.got            0x0000000000101810        0x0
+ .got           0x0000000000101810        0x0 arch/i386/crti.o
+
+.got.plt        0x0000000000101810        0x0
+ .got.plt       0x0000000000101810        0x0 arch/i386/crti.o
+
+.igot.plt       0x0000000000101810        0x0
+ .igot.plt      0x0000000000101810        0x0 arch/i386/crti.o
+
+.ctors          0x0000000000101810        0x8
+ .ctors         0x0000000000101810        0x4 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .ctors         0x0000000000101814        0x4 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+
+.dtors          0x0000000000101818        0x8
+ .dtors         0x0000000000101818        0x4 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .dtors         0x000000000010181c        0x4 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+                0x000000000010181c                __DTOR_END__
+
+.tm_clone_table
+                0x0000000000101820        0x0
+ .tm_clone_table
+                0x0000000000101820        0x0 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .tm_clone_table
+                0x0000000000101820        0x0 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+
+.bss            0x0000000000102000     0x4840
+ *(COMMON)
+ COMMON         0x0000000000102000       0x10 arch/i386/tty.o
+                0x0000000000102000                terminal_color
+                0x0000000000102004                terminal_column
+                0x0000000000102008                terminal_buffer
+                0x000000000010200c                terminal_row
+ *fill*         0x0000000000102010       0x10 
+ COMMON         0x0000000000102020      0x800 kernel/kernel.o
+                0x0000000000102020                IDT
+ *(.bss)
+ .bss           0x0000000000102820        0x0 arch/i386/crti.o
+ .bss           0x0000000000102820       0x20 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+ .bss           0x0000000000102840        0x0 arch/i386/boot.o
+ .bss           0x0000000000102840        0x0 arch/i386/tty.o
+ .bss           0x0000000000102840        0x0 kernel/kernel.o
+ .bss           0x0000000000102840        0x0 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+ .bss           0x0000000000102840        0x0 arch/i386/crtn.o
+ .bss           0x0000000000102840        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .bss           0x0000000000102840        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .bss           0x0000000000102840        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .bss           0x0000000000102840        0x0 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+ *(.bootstrap_stack)
+ .bootstrap_stack
+                0x0000000000102840     0x4000 arch/i386/boot.o
+OUTPUT(cookieos.kernel elf32-i386)
+
+.debug_line     0x0000000000000000      0x619
+ .debug_line    0x0000000000000000       0x4f arch/i386/crti.o
+ .debug_line    0x000000000000004f       0x55 arch/i386/boot.o
+ .debug_line    0x00000000000000a4      0x173 arch/i386/tty.o
+ .debug_line    0x0000000000000217      0x14b kernel/kernel.o
+ .debug_line    0x0000000000000362       0x4d arch/i386/crtn.o
+ .debug_line    0x00000000000003af      0x106 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .debug_line    0x00000000000004b5       0x8f /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .debug_line    0x0000000000000544       0x4f /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .debug_line    0x0000000000000593       0x86 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+
+.debug_info     0x0000000000000000      0xc6f
+ .debug_info    0x0000000000000000       0x22 arch/i386/crti.o
+ .debug_info    0x0000000000000022       0x26 arch/i386/boot.o
+ .debug_info    0x0000000000000048      0x4cc arch/i386/tty.o
+ .debug_info    0x0000000000000514      0x315 kernel/kernel.o
+ .debug_info    0x0000000000000829       0x22 arch/i386/crtn.o
+ .debug_info    0x000000000000084b      0x266 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .debug_info    0x0000000000000ab1       0x9e /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .debug_info    0x0000000000000b4f       0x7b /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .debug_info    0x0000000000000bca       0xa5 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+
+.debug_abbrev   0x0000000000000000      0x654
+ .debug_abbrev  0x0000000000000000       0x12 arch/i386/crti.o
+ .debug_abbrev  0x0000000000000012       0x14 arch/i386/boot.o
+ .debug_abbrev  0x0000000000000026      0x1e7 arch/i386/tty.o
+ .debug_abbrev  0x000000000000020d      0x154 kernel/kernel.o
+ .debug_abbrev  0x0000000000000361       0x12 arch/i386/crtn.o
+ .debug_abbrev  0x0000000000000373      0x15f /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .debug_abbrev  0x00000000000004d2       0x80 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .debug_abbrev  0x0000000000000552       0x81 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .debug_abbrev  0x00000000000005d3       0x81 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+
+.debug_aranges  0x0000000000000000      0x130
+ .debug_aranges
+                0x0000000000000000       0x28 arch/i386/crti.o
+ .debug_aranges
+                0x0000000000000028       0x20 arch/i386/boot.o
+ .debug_aranges
+                0x0000000000000048       0x20 arch/i386/tty.o
+ .debug_aranges
+                0x0000000000000068       0x20 kernel/kernel.o
+ .debug_aranges
+                0x0000000000000088       0x28 arch/i386/crtn.o
+ .debug_aranges
+                0x00000000000000b0       0x20 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .debug_aranges
+                0x00000000000000d0       0x20 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .debug_aranges
+                0x00000000000000f0       0x20 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .debug_aranges
+                0x0000000000000110       0x20 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+
+.debug_str      0x0000000000000000      0x535
+ .debug_str     0x0000000000000000       0x4e arch/i386/crti.o
+ .debug_str     0x000000000000004e       0x11 arch/i386/boot.o
+                                         0x4e (size before relaxing)
+ .debug_str     0x000000000000005f      0x2de arch/i386/tty.o
+                                        0x34e (size before relaxing)
+ .debug_str     0x000000000000033d       0xd0 kernel/kernel.o
+                                        0x22c (size before relaxing)
+ .debug_str     0x000000000000040d       0x11 arch/i386/crtn.o
+                                         0x4e (size before relaxing)
+ .debug_str     0x000000000000041e       0xe3 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+                                        0x1ab (size before relaxing)
+ .debug_str     0x0000000000000501       0x10 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+                                         0xf4 (size before relaxing)
+ .debug_str     0x0000000000000511        0xd /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+                                         0xae (size before relaxing)
+ .debug_str     0x000000000000051e       0x17 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+                                         0xf9 (size before relaxing)
+
+.debug_ranges   0x0000000000000000      0x108
+ .debug_ranges  0x0000000000000000       0x20 arch/i386/crti.o
+ .debug_ranges  0x0000000000000020       0x70 arch/i386/tty.o
+ .debug_ranges  0x0000000000000090       0x20 arch/i386/crtn.o
+ .debug_ranges  0x00000000000000b0       0x58 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtbegin.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 arch/i386/tty.o
+ .comment       0x0000000000000011       0x12 kernel/kernel.o
+ .comment       0x0000000000000011       0x12 /home/hometue/opt/cross/lib/gcc/i686-elf/7.2.0/crtend.o
+ .comment       0x0000000000000011       0x12 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .comment       0x0000000000000011       0x12 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(putchar.libk.o)
+ .comment       0x0000000000000011       0x12 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(puts.libk.o)
+ .comment       0x0000000000000011       0x12 /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
+
+.debug_loc      0x0000000000000000      0x58a
+ .debug_loc     0x0000000000000000      0x175 arch/i386/tty.o
+ .debug_loc     0x0000000000000175      0x15e kernel/kernel.o
+ .debug_loc     0x00000000000002d3      0x26d /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(printf.libk.o)
+ .debug_loc     0x0000000000000540       0x4a /media/osdev/meatyskeleton/meaty-skeleton/sysroot/usr/lib/libk.a(strlen.libk.o)
